@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Demo</title>
+	</head>
+	<body>
+		<h2>
+			<center>Enhancing Monotonicity for Robust Autoregressive Transformer TTS<center>
+		</center></center></h2>
+		<h3>
+			<center>Xiangyu Liang, Zhiyong Wu, Runnan Li, Yanqing Liu, Sheng Zhao, Helen Meng</center>
+		</h3>
+		<h3>
+			<center>Audio demos</center>
+		</h3>
+		<h3>
+			<p>Abstract<p>
+		</h3>
+		<p>With the development of sequence-to-sequence modeling algorithms, Text-to-Speech (TTS) techniques have achieved significant improvement on speech quality and naturalness. These deep learning algorithms, such as recurrent neural network (RNN) and its memory enhanced variations, have shown strong reconstruction ability from input linguistic features to acoustic features. However, the efficiency of these algorithms is limited for its sequential process in both training and inference.  Recently, Transformer with superiority in parallelism is proposed to TTS.  It employs the positional embedding instead of recurrent mechanism for position modeling and significantly boost training speed. However, this approach lacks monotonic constraint and is deficient with issues like pronunciation skipping. Therefore, in this paper, we propose an monotonicity enhancing approach with the combining use of Stepwise Monotonic Attention (SMA) and multi-head attention for Transformer based TTS system. Experiments show the proposed approach can reduce bad cases from 53 to 1 in 500 sentences' test, together with an improvement for MOS from 4.09 to 4.17 in naturalness test.</p>
+
+		<h3>Robustness: LJSpeech (Griffin Lim)</h3>
+		<table style="width:100%">
+		  <tbody><tr>
+			<th></th>
+			<th>Ground truth</th>
+			<th>Baseline</th>
+			<th>SMA tuned(soft)</th>
+			<th>SMA tuned(hard)</th>
+		  </tr>
+		  <p>0.LJ049-0027: Presidents have made it clear, however, that they did not favor this or any other arrangement which interferes with the <font color="#FF0000">privacy of the</font> President and his guests.</p>
+		  <tr>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0027 a.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0027 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0027 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0027 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+		  <table style="width:100%">
+		  <tbody>
+		  <p>1.LJ049-0177: and Robert I. Bouck, who was in charge of the Protective Research Section of the Secret Service, <font color="#FF0000">believed that the accumulation</font> of the facts known to the FBI</p>
+		  <tr>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0177 a.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0177 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0177 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ049-0177 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		 
+		  </tbody></table>
+		  
+		  
+		  
+		  <table style="width:100%">
+		  <tbody>
+		  <tr>
+			<p>2.LJ050-0061: (b) who have made threats of bodily harm against officials or employees of Federal, state or local government<font color="#FF0000"> or officials of a foreign</font> government,</p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0061 a.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0061 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0061 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0061 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		 
+		  </tbody></table>
+		  
+		  
+		  <table style="width:100%">
+		  <tbody>
+		  <tr>
+		  <p>3.LJ050-0263: it will continue to rely in many respects upon the greater <font color="#FF0000">resources</font> of the Office <font color="#FF0000">of Science</font> and Technology and other agencies.</p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0263 a.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0263 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0263 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_LJ/LJ050-0263 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+	<h3>Robustness: Out of domain (WaveNet)</h3>
+	<table style="width:100%">
+		  <tbody><tr>
+			<th></th>
+			<th>Baseline</th>
+			<th>SMA tuned(soft)</th>
+			<th>SMA tuned(hard)</th>
+		  </tr>
+		  
+		  <tr>
+		  <p>and which thus helps to restrain the actions of individuals within due bounds. Justice in <font color="#FF0000">this sense of</font> the term is of critical importance,</p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000021 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000021 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000021 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+		<table style="width:100%">  
+		  <tr>
+		  <p>Such cases, however, are not very frequent; and in every part of Europe twenty workmen serve under <font color="#FF0000">a master for one</font> that is <font color="#FF0000">independent</font>, </p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000028 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000028 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000028 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+		  <table style="width:100%">
+		  <tr>
+		  <p>and argued that it could make companies less competitive—despite the disclosure obligations that had been <font color="#FF0000">enacted in</font> Europe and Canada.</p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000034 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000034 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_OD/0000000034 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+	</table>
+	
+	<h3>Naturalness: Out of domain (WaveNet)</h3>
+	<table style="width:100%">  
+	<tbody><tr>
+			<th></th>
+			<th>Baseline</th>
+			<th>SMA tuned(soft)</th>
+			<th>SMA tuned(hard)</th>
+		  </tr>
+		  <tr>
+		  <p>However, melting ice is now thought to be the main reason for rising sea levels. Most glaciers in temperate regions of the world are retreating. </p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000000 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000000 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000000 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+		  <table style="width:100%">
+		  <tr>
+		  <p>And even before that, the Romans ruled, which in their turn came from all over the intercontinental empire.</p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000006 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000006 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000006 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+	</table>
+	
+	<table style="width:100%">  
+		  <tr>
+		  <p>Gine Wang-Reese, vice president of political and public affairs at Equinor, wrote to the SEC. </p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000039 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000039 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000039 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+		  
+		  <table style="width:100%">
+		  <tr>
+		  <p>The chief executive of the company’s Washington, D.C.-based lobbying arm, Francois Badoual, </p>
+			<th>Audios</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000042 b.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000042 d.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+			<th>
+					<audio controls="" style="width: 200px;">
+					  <source src="./wavs_NT/0000000042 e.wav" type="audio/mpeg">
+					Your browser does not support the audio element.
+					</audio>
+			</th>
+		  </tr>
+		  </tbody></table>
+	</table>
+</body></html>
